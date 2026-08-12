@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH Teknik - Jasa Servis Pompa Air & Sumur Bor Tangerang Selatan</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: #333; line-height: 1.6; background-color: #fcfcfc; }
+        
+        /* Header Navigation */
+        header { 
+            background-color: #111111; 
+            color: #fff; 
+            padding: 0.8rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 3px solid #d4af37; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Posisi Kiri Header: Logo + Tulisan CH Teknik */
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        .logo-img { 
+            height: 50px; 
+            width: auto; 
+            object-fit: contain; 
+            border-radius: 4px;
+        }
+        .brand-text { 
+            font-size: 1.6rem; 
+            font-weight: bold; 
+            color: #fff; 
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .brand-text span { color: #d4af37; }
+        
+        /* Posisi Kanan Header: Tombol Hubungi Kami */
+        .btn-wa { 
+            display: inline-block; 
+            background-color: #25d366; 
+            color: #fff; 
+            padding: 0.6rem 1.4rem; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.95rem; 
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); 
+            transition: transform 0.2s, background-color 0.2s; 
+        }
+        .btn-wa:hover { 
+            transform: scale(1.03); 
+            background-color: #1ebe5d; 
+        }
+        
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(rgba(17, 17, 17, 0.88), rgba(17, 17, 17, 0.88)), url('https://i.imgur.com/ndVs6nw.jpeg') no-repeat center center/cover; 
+            color: #fff; 
+            text-align: center; 
+            padding: 4.5rem 1rem; 
+        }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; font-weight: 700; }
+        .hero h1 span { color: #d4af37; }
+        .hero p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto; color: #ddd; }
+        .hero .btn-wa { padding: 0.8rem 2rem; font-size: 1.1rem; }
+        
+        /* Container Utama */
+        .container { padding: 3.5rem 5%; max-width: 1100px; margin: auto; }
+        .section-title { text-align: center; margin-bottom: 2.5rem; color: #111; font-size: 1.8rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background-color: #d4af37; margin: 8px auto 0; border-radius: 2px; }
+        
+        /* Galeri */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; }
+        .gallery-item { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        /* Layanan */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .card { background: #fff; padding: 1.8rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #111; }
+        .card h3 { margin-bottom: 0.8rem; color: #111; font-size: 1.2rem; }
+        
+        /* Keunggulan */
+        .features { background-color: #f4f4f4; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+        .features-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+        .features-list li { background: #fff; padding: 1.2rem; border-radius: 8px; font-weight: 600; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.03); color: #333; }
+        
+        /* Floating WA */
+        .float-wa { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; padding: 12px 22px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; }
+        
+        /* Footer */
+        footer { background: #111; color: #bbb; text-align: center; padding: 2rem 1rem; font-size: 0.9rem; border-top: 2px solid #222; }
+        footer p span { color: #d4af37; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo-container">
+            <img src="https://i.imgur.com/azdf0aC.png" alt="Logo CH Teknik" class="logo-img">
+            <div class="brand-text">CH <span>Teknik</span></div>
+        </div>
+        <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20jasa%20servis/sumur%20bor" class="btn-wa">Hubungi Kami</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Jasa Servis Pompa Air & Sumur Bor <span>Tangerang Selatan</span></h1>
+        <p>Solusi cepat, profesional, dan bergaransi untuk mengatasi masalah air bersih di rumah, kantor, maupun tempat usaha Anda.</p>
+        <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20ingin%20konsultasi%20mengenai%20pompa%20air%2Fsumur%20bor" class="btn-wa">Konsultasi via WhatsApp</a>
+    </section>
+
+    <!-- Dokumentasi Lapangan -->
+    <section class="container">
+        <h2 class="section-title">Dokumentasi Lapangan</h2>
+        <p style="text-align: center; margin-bottom: 2.5rem; color: #666;">Potret asli aktivitas penanganan dan perbaikan langsung oleh tim ahli kami.</p>
+        <div class="gallery-grid">
+            <img src="https://i.imgur.com/ndVs6nw.jpeg" alt="Dokumentasi Pekerjaan 1" class="gallery-item">
+            <img src="https://i.imgur.com/afluumA.jpeg" alt="Dokumentasi Pekerjaan 2" class="gallery-item">
+            <img src="https://i.imgur.com/wCWHanJ.jpeg" alt="Dokumentasi Pekerjaan 3" class="gallery-item">
+            <img src="https://i.imgur.com/G9OtDZF.jpeg" alt="Dokumentasi Pekerjaan 4" class="gallery-item">
+        </div>
+    </section>
+
+    <!-- Layanan Kami -->
+    <section class="container" style="padding-top: 0;">
+        <h2 class="section-title">Layanan Kami</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Servis Pompa Air</h3>
+                <p>Perbaikan segala jenis kerusakan pompa air (mati total, suara bising, air tidak naik/kecil, atau mesin terus menyala).</p>
+            </div>
+            <div class="card">
+                <h3>Pembuatan Sumur Bor</h3>
+                <p>Jasa pengeboran sumur jet pump & artesis untuk mendapatkan sumber air bersih dan bebas keruh/bau.</p>
+            </div>
+            <div class="card">
+                <h3>Pemasangan & Servis Filter Air</h3>
+                <p>Solusi untuk air kuning, keruh, berbau besi, atau berkerak agar aman digunakan sehari-hari.</p>
+            </div>
+            <div class="card">
+                <h3>Instalasi Pipa & Toren</h3>
+                <p>Pemasangan pipa jalur air baru, pembersihan toren/tangki air, serta perbaikan kebocoran instalasi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih Kami?</h2>
+            <ul class="features-list">
+                <li>⚡ Bekerja Cepat & Rapi</li>
+                <li>🛠️ Teknisi Berpengalaman</li>
+                <li> Harga Transparan</li>
+                <li>🛡️ Bergaransi</li>
+                <li> Area Tangsel & Sekitarnya</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Area Layanan -->
+    <section class="container" style="text-align: center;">
+        <h2 class="section-title">Area Jangkauan Layanan</h2>
+        <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #555;">Melayani seluruh wilayah <strong>Tangerang Selatan</strong> meliputi Ciputat, Pamulang, BSD, Serpong, Bintaro, Pondok Aren, Setu, dan sekitarnya.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>CH Teknik</span> - Servis Pompa Air & Sumur Bor Tangerang Selatan.</p>
+        <p style="margin-top: 5px; color: #888;">WhatsApp: 0889-8510-5537</p>
+    </footer>
+
+    <!-- Floating WA Button -->
+    <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20bantuan%20teknisi" class="float-wa"> Chat WhatsApp</a>
+
+</body>
+</html>

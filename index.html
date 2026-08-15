@@ -1,340 +1,235 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CH Teknik - Jasa Servis Pompa Air & Sumur Bor Tangerang Selatan</title>
-  <style>
-    /* Reset & Variabel Warna (Hitam Keemas-emasan) */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    :root {
-      --primary-color: #0d0d0d;    /* Hitam Pekat Elegan */
-      --secondary-color: #1a1a1a;  /* Hitam Soft / Gelap */
-      --accent-gold: #d4af37;     /* Emas Klasik (Gold) */
-      --accent-gold-light: #f3e5ab;/* Emas Muda / Soft Gold */
-      --text-light: #e0e0e0;       /* Teks Terang untuk Background Gelap */
-      --text-dark: #222222;        /* Teks Gelap */
-      --wa-green: #25d366;         /* Hijau WA Tetap Digunakan untuk Tombol Kontak */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH Teknik | Servis Pompa Air & Sumur Bor Jaksel & Tangsel</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-25%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-wave {
+            animation: wave 10s ease-in-out infinite;
+        }
 
-    body {
-      color: var(--text-dark);
-      line-height: 1.6;
-      background-color: #fbfbfb;
-    }
-
-    /* Container */
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Utilitas Tombol */
-    .btn-wa {
-      display: inline-block;
-      background: linear-gradient(135deg, #25d366, #1ebe5d);
-      color: #ffffff;
-      padding: 0.7rem 1.6rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      white-space: nowrap;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-wa:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      color: var(--primary-color);
-      font-size: 1.8rem;
-      position: relative;
-      font-weight: 700;
-    }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
-
-    /* ----------------------------------------------------------- */
-    /* 1. Header Navigation */
-    /* ----------------------------------------------------------- */
-    header {
-      background-color: var(--primary-color);
-      color: #ffffff;
-      padding: 0.9rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 2px solid var(--accent-gold);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-    .brand-text {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 1px;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-    .brand-text span {
-      color: var(--accent-gold);
-      text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-    }
-
-    /* ----------------------------------------------------------- */
-    /* 2. Hero Section */
-    /* ----------------------------------------------------------- */
-    .hero {
-      background: linear-gradient(rgba(13, 13, 13, 0.90), rgba(13, 13, 13, 0.92)), url('https://i.imgur.com/ndVs6nw.jpeg') no-repeat center center/cover;
-      color: #ffffff;
-      text-align: center;
-      padding: 5rem 1rem;
-      border-bottom: 1px solid #222;
-    }
-    .hero h1 {
-      font-size: 2.3rem;
-      margin-bottom: 1.2rem;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-    .hero h1 span {
-      color: var(--accent-gold);
-      background: linear-gradient(135deg, #f3e5ab, #d4af37);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2.2rem;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-      color: var(--text-light);
-    }
-    .hero .btn-wa {
-      padding: 0.85rem 2.2rem;
-      font-size: 1.1rem;
-    }
-
-    /* ----------------------------------------------------------- */
-    /* 3. Dokumentasi Lapangan (Gallery) */
-    /* ----------------------------------------------------------- */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-    }
-    .gallery-item {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      border: 1px solid #e0e0e0;
-      transition: transform 0.3s;
-    }
-    .gallery-item:hover {
-      transform: scale(1.02);
-    }
-
-    /* ----------------------------------------------------------- */
-    /* 4. Layanan Kami (Services) */
-    /* ----------------------------------------------------------- */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-      border-top: 4px solid var(--accent-gold);
-      border-left: 1px solid #f0f0f0;
-      border-right: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card h3 {
-      margin-bottom: 0.8rem;
-      color: var(--primary-color);
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-    .card p {
-      color: #555;
-      font-size: 0.95rem;
-    }
-
-    /* ----------------------------------------------------------- */
-    /* 5. Keunggulan (Features) */
-    /* ----------------------------------------------------------- */
-    .features {
-      background-color: var(--primary-color);
-      color: #ffffff;
-      border-top: 2px solid var(--accent-gold);
-      border-bottom: 2px solid var(--accent-gold);
-    }
-    .features .section-title {
-      color: #ffffff;
-    }
-    .features-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.2rem;
-    }
-    .features-list li {
-      background: var(--secondary-color);
-      padding: 1.3rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      color: var(--accent-gold-light);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-    }
-
-    /* ----------------------------------------------------------- */
-    /* 6. Floating WA */
-    /* ----------------------------------------------------------- */
-    .float-wa {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #25d366, #1ebe5d);
-      color: #ffffff;
-      padding: 13px 24px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* ----------------------------------------------------------- */
-    /* 7. Footer */
-    /* ----------------------------------------------------------- */
-    footer {
-      background: var(--primary-color);
-      color: #888;
-      text-align: center;
-      padding: 2.5rem 1rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #222;
-    }
-    footer p span {
-      color: var(--accent-gold);
-      font-weight: bold;
-    }
-  </style>
+        @keyframes pulse-custom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+        .animate-pulse-btn {
+            animation: pulse-custom 2s infinite;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden">
 
-  <!-- Header Navigation -->
-  <header>
-    <a href="#" class="brand-text">CH <span>Teknik</span></a>
-    <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20jasa%20servis/sumur%20bor" class="btn-wa">Hubungi Kami</a>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Jasa Servis Pompa Air & Sumur Bor <span>Tangerang Selatan</span></h1>
-    <p>Solusi cepat, profesional, dan bergaransi untuk mengatasi masalah air bersih di rumah, kantor, maupun tempat usaha Anda.</p>
-    <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20ingin%20konsultasi%20mengenai%20pompa%20air%2Fsumur%20bor" class="btn-wa">Konsultasi via WhatsApp</a>
-  </section>
-
-  <!-- Dokumentasi Lapangan -->
-  <section class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
-    <h2 class="section-title">Dokumentasi Lapangan</h2>
-    <p style="text-align: center; margin-bottom: 2.5rem; color: #666;">Potret asli aktivitas penanganan dan perbaikan langsung oleh tim ahli kami.</p>
-    <div class="gallery-grid">
-      <img src="https://i.imgur.com/ndVs6nw.jpeg" alt="Dokumentasi Pekerjaan 1" class="gallery-item">
-      <img src="https://i.imgur.com/afluumA.jpeg" alt="Dokumentasi Pekerjaan 2" class="gallery-item">
-      <img src="https://i.imgur.com/wCWHanJ.jpeg" alt="Dokumentasi Pekerjaan 3" class="gallery-item">
-      <img src="https://i.imgur.com/G9OtDZF.jpeg" alt="Dokumentasi Pekerjaan 4" class="gallery-item">
+    <!-- Top Info Bar -->
+    <div class="bg-slate-950 text-slate-400 text-xs py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-blue-400"></i> Layanan 24 Jam Panggilan</span>
+                <span class="hidden sm:flex items-center gap-1.5"><i class="fa-solid fa-shield-check text-emerald-400"></i> Pengerjaan Bergaransi</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-slate-300 font-medium">
+                <i class="fa-solid fa-location-dot text-rose-500"></i> Jakarta Selatan & Tangerang Selatan
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- Layanan Kami -->
-  <section class="container" style="padding-bottom: 4rem;">
-    <h2 class="section-title">Layanan Kami</h2>
-    <div class="services-grid">
-      <div class="card">
-        <h3>Servis Pompa Air</h3>
-        <p>Perbaikan segala jenis kerusakan pompa air (mati total, suara bising, air tidak naik/kecil, atau mesin terus menyala).</p>
-      </div>
-      <div class="card">
-        <h3>Pembuatan Sumur Bor</h3>
-        <p>Jasa pengeboran sumur jet pump & artesis untuk mendapatkan sumber air bersih dan bebas keruh/bau.</p>
-      </div>
-      <div class="card">
-        <h3>Pemasangan & Servis Filter Air</h3>
-        <p>Solusi untuk air kuning, keruh, berbau besi, atau berkerak agar aman digunakan sehari-hari.</p>
-      </div>
-      <div class="card">
-        <h3>Instalasi Pipa & Toren</h3>
-        <p>Pemasangan pipa jalur air baru, pembersihan toren/tangki air, serta perbaikan kebocoran instalasi.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Header / Navbar -->
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-xl flex items-center justify-center text-white shadow-md shadow-blue-500/20 animate-bounce">
+                    <i class="fa-solid fa-faucet-drip text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900 block">CH TEKNIK</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 -mt-1 block">Servis Pompa & Sumur Bor</span>
+                </div>
+            </a>
 
-  <!-- Keunggulan (Seksi Gelap Hitam-Emas) -->
-  <section class="features" style="padding: 4rem 0;">
-    <div class="container">
-      <h2 class="section-title">Mengapa Memilih Kami?</h2>
-      <ul class="features-list">
-        <li>⚡ Bekerja Cepat & Rapi</li>
-        <li>🛠️ Teknisi Berpengalaman</li>
-        <li>💰 Harga Transparan</li>
-        <li>🛡️ Bergaransi</li>
-        <li>📍 Area Tangsel & Sekitarnya</li>
-      </ul>
-    </div>
-  </section>
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
+                <a href="#layanan" class="hover:text-blue-600 transition">Layanan</a>
+                <a href="#dokumentasi" class="hover:text-blue-600 transition">Dokumentasi Lapangan</a>
+                <a href="#keunggulan" class="hover:text-blue-600 transition">Keunggulan</a>
+                <a href="#area" class="hover:text-blue-600 transition">Area Jangkauan</a>
+            </nav>
 
-  <!-- Area Layanan -->
-  <section class="container" style="text-align: center; padding-top: 4rem; padding-bottom: 4rem;">
-    <h2 class="section-title">Area Jangkauan Layanan</h2>
-    <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #555;">Melayani seluruh wilayah <strong>Tangerang Selatan</strong> meliputi Ciputat, Pamulang, BSD, Serpong, Bintaro, Pondok Aren, Setu, dan sekitarnya.</p>
-  </section>
+            <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20jasa%20servis/sumur%20bor" target="_blank" 
+               class="animate-pulse-btn bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-emerald-500/30 flex items-center gap-2 transition">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Hubungi Kami</span>
+            </a>
+        </div>
+    </header>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 <span>CH Teknik</span> - Servis Pompa Air & Sumur Bor Tangerang Selatan.</p>
-    <p style="margin-top: 8px; color: #aaa;">WhatsApp: <strong style="color: #25d366;">0889-8510-5537</strong></p>
-  </footer>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 text-white pt-20 pb-32 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
-  <!-- Floating WA Button -->
-  <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20bantuan%20teknisi" class="float-wa">💬 Chat WhatsApp</a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <span class="inline-block bg-blue-500/20 border border-blue-400/30 text-cyan-300 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6 animate-pulse">
+                ⚡ Cepat, Profesional & Bergaransi
+            </span>
+            
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
+                Solusi Cepat Air Mati & <br/>
+                <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-400 bg-clip-text text-transparent">Servis Pompa Bergaransi</span>
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-10">
+                Layanan pengeboran sumur jet pump/submersible, perbaikan mesin, dan <strong>pemasangan pompa air profesional</strong> di <strong>Jakarta Selatan</strong> & <strong>Tangerang Selatan</strong>.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+                <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20mau%20konsultasi%20pemasangan%20pompa%20air" target="_blank" 
+                   class="animate-pulse-btn bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-emerald-900/50 flex items-center justify-center gap-3 transition transform hover:-translate-y-1">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Chat WhatsApp (0889-8510-5537)</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-[200%] opacity-20 pointer-events-none animate-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-16 fill-cyan-400">
+                <path d="M0,0 C150,90 350,-40 500,65 C650,170 900,10 1200,40 L1200,120 L0,120 Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- SECTION DOKUMENTASI LAPANGAN -->
+    <section id="dokumentasi" class="py-20 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Portofolio Kerja</h2>
+                <p class="text-3xl font-extrabold text-slate-900 tracking-tight">Dokumentasi Pengerjaan Lapangan</p>
+                <p class="text-slate-600 text-sm mt-2">Hasil dokumentasi pemasangan pompa air, APC, dan pengeboran sumur bor di lokasi pelanggan.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Foto 1: Pemasangan Pompa Air (Z3m2eWZ) -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 hover:-translate-y-2 transition duration-300 group">
+                    <div class="relative overflow-hidden h-64 bg-slate-900">
+                        <img src="https://i.imgur.com/Z3m2eWZ.jpeg" alt="Pemasangan Pompa Air CH Teknik" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-cyan-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Instalasi Pompa</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Pemasangan Mesin Pompa Air</h3>
+                        <p class="text-slate-600 text-sm">Pemasangan dan perakitan mesin pompa air baru lengkap dengan pemipaan rapi dan pengujian dorongan air yang stabil.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 2: Pemasangan APC (ESq5NJQ) -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 hover:-translate-y-2 transition duration-300 group">
+                    <div class="relative overflow-hidden h-64 bg-slate-900">
+                        <img src="https://i.imgur.com/ESq5NJQ.jpeg" alt="Pemasangan APC CH Teknik" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Pemasangan APC</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Instalasi Otomatis APC</h3>
+                        <p class="text-slate-600 text-sm">Pemasangan Automatic Pressure Control (APC) agar tekanan air konstan dan menjaga mesin hemat listrik serta tahan lama.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 3: Pengeboran Sumur Bor (9mIDkFQ) -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 hover:-translate-y-2 transition duration-300 group">
+                    <div class="relative overflow-hidden h-64 bg-slate-900">
+                        <img src="https://i.imgur.com/9mIDkFQ.jpeg" alt="Pengeboran Sumur Bor CH Teknik" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Sumur Bor</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Proses Pengeboran Sumur Bor</h3>
+                        <p class="text-slate-600 text-sm">Pengeboran jet pump & submersible menggunakan mesin bor profesional untuk mendapatkan sumber air jernih melimpah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-2">Layanan Utama</h2>
+                <p class="text-3xl font-extrabold tracking-tight">Solusi Masalah Air Terlengkap</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/60 hover:border-blue-500/50 hover:-translate-y-2 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Servis & Pasang Pompa</h3>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400 text-xs"></i> Pemasangan pompa pendorong & hisap</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400 text-xs"></i> Pasang Automatic Pressure Control (APC)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400 text-xs"></i> Perbaikan pompa mati total / dengung</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20pasang/servis%20pompa" target="_blank" class="w-full text-center py-3 bg-slate-700 hover:bg-blue-600 font-semibold rounded-xl text-sm transition">Pesan Jasa Pompa</a>
+                </div>
+
+                <div class="bg-gradient-to-b from-blue-950 to-slate-800 rounded-3xl p-8 border-2 border-blue-500 shadow-2xl relative flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-md">Layanan Unggulan</span>
+                    <div>
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center text-xl mb-6 shadow-lg shadow-blue-500/30">
+                            <i class="fa-solid fa-bore-hole"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Sumur Bor Profesional</h3>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> Pengeboran Jet Pump (20 - 40 Meter)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> Submersible / Deep Well (40 - 100M+)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> Kuras & cuci sumur keruh/kuning</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20jasa%20sumur%20bor" target="_blank" class="w-full text-center py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-500/20">Pesan Sumur Bor</a>
+                </div>
+
+                <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/60 hover:border-blue-500/50 hover:-translate-y-2 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-cyan-500/20 text-cyan-400 rounded-xl flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-filter"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Filter & Pipa Water System</h3>
+                        <ul class="space-y-3 text-slate-300 text-sm mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400 text-xs"></i> Pemasangan filter penjernih air</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400 text-xs"></i> Pemasangan & kuras toren air</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400 text-xs"></i> Perbaikan instalasi pipa bocor</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20instalasi%20filter/toren" target="_blank" class="w-full text-center py-3 bg-slate-700 hover:bg-blue-600 font-semibold rounded-xl text-sm transition">Konsultasi Instalasi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WA Button -->
+    <a href="https://wa.me/6288985105537?text=Halo%20CH%20Teknik,%20saya%20butuh%20jasa%20servis/sumur%20bor" target="_blank" 
+       class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl z-50 animate-bounce flex items-center justify-center" title="Chat WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <span class="text-xl font-bold text-white tracking-wider block mb-2">CH TEKNIK</span>
+            <p class="text-xs sm:text-sm max-w-lg mx-auto mb-6">Spesialis Jasa Servis Pompa Air, Pemasangan APC & Sumur Bor Terpercaya untuk Area Jakarta Selatan & Tangerang Selatan.</p>
+            <p class="text-xs text-slate-600">&copy; CH Teknik. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>

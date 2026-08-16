@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RHS TEKNIK - Jasa Servis Pompa Air Profesional</title>
+    <title>CH TEKNIK - Jasa Servis Pompa Air Profesional</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,7 +11,7 @@
             --primary-gradient: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             --bg-light: #f8fafc;
-            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-bg: rgba(255, 255, 255, 0.95);
             --text-dark: #0f172a;
             --text-muted: #64748b;
             --wa-green: #25d366;
@@ -30,17 +30,66 @@
             overflow-x: hidden;
         }
 
+        /* KEYFRAME ANIMATIONS */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(2, 132, 199, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
         /* HEADER */
         header {
             position: relative;
             background: linear-gradient(180deg, #e0f2fe 0%, #ffffff 100%);
             padding: 50px 20px 70px;
             text-align: center;
+            animation: fadeInDown 1s ease-out;
         }
 
         .logo-wrapper {
             margin: 0 auto 25px;
             display: inline-block;
+            animation: float 4s ease-in-out infinite;
         }
 
         .brand-logo {
@@ -49,13 +98,13 @@
             height: auto;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(2, 132, 199, 0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
             display: block;
         }
 
         .brand-logo:hover {
-            transform: scale(1.04);
-            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.35);
+            transform: scale(1.08) rotate(1deg);
+            box-shadow: 0 22px 45px rgba(2, 132, 199, 0.4);
         }
 
         .status-badge {
@@ -77,14 +126,7 @@
             height: 8px;
             background-color: #22c55e;
             border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
             animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
 
         h1 {
@@ -120,12 +162,13 @@
             align-items: center;
             gap: 12px;
             box-shadow: 0 12px 30px rgba(2, 132, 199, 0.3);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulseGlow 2.5s infinite;
         }
 
         .btn-main:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 18px 35px rgba(2, 132, 199, 0.45);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.5);
         }
 
         .container {
@@ -136,6 +179,7 @@
             z-index: 10;
         }
 
+        /* ANIMATED CARDS */
         .card-custom {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -144,6 +188,13 @@
             margin-bottom: 35px;
             border: 1px solid rgba(226, 232, 240, 0.8);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.07);
         }
 
         .section-header {
@@ -163,6 +214,11 @@
             justify-content: center;
             color: var(--primary);
             font-weight: 800;
+            transition: transform 0.3s ease;
+        }
+
+        .card-custom:hover .section-icon {
+            transform: rotate(10deg) scale(1.1);
         }
 
         h2 {
@@ -171,7 +227,7 @@
             color: var(--text-dark);
         }
 
-        /* GALERI PORTOFOLIO */
+        /* GALERI PORTOFOLIO ANIMATION */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -184,19 +240,30 @@
             overflow: hidden;
             border: 1px solid #e2e8f0;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 35px rgba(2, 132, 199, 0.18);
+            border-color: #bae6fd;
+        }
+
+        .portfolio-img-wrapper {
+            overflow: hidden;
+            height: 200px;
         }
 
         .portfolio-img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
         }
 
         .portfolio-info {
@@ -226,7 +293,7 @@
             color: var(--text-muted);
         }
 
-        /* GRID LAYANAN */
+        /* GRID LAYANAN ANIMATION */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -252,13 +319,13 @@
             height: 4px;
             background: var(--primary-gradient);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, height 0.3s ease;
         }
 
         .service-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-            border-color: transparent;
+            box-shadow: 0 15px 30px rgba(2, 132, 199, 0.12);
+            border-color: #e0f2fe;
         }
 
         .service-card:hover::before {
@@ -269,6 +336,11 @@
             font-size: 1.2rem;
             margin-bottom: 10px;
             color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover h3 {
+            color: var(--primary);
         }
 
         .service-card p {
@@ -276,7 +348,7 @@
             font-size: 0.95rem;
         }
 
-        /* KEUNGGULAN */
+        /* KEUNGGULAN ANIMATION */
         .advantages-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -288,6 +360,13 @@
             padding: 20px;
             border-radius: 16px;
             border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .adv-box:hover {
+            background: #ffffff;
+            transform: translateX(5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
 
         .adv-box h4 {
@@ -313,6 +392,13 @@
             border: 1px solid #e2e8f0;
             padding: 25px;
             border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .area-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(2, 132, 199, 0.08);
         }
 
         .area-item h3 {
@@ -326,7 +412,7 @@
             font-size: 0.95rem;
         }
 
-        /* CTA BANNER */
+        /* CTA BANNER ANIMATION */
         .cta-banner {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
@@ -334,6 +420,19 @@
             padding: 50px 30px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .cta-banner h2 {
@@ -353,6 +452,12 @@
             color: #38bdf8;
             letter-spacing: 2px;
             margin-bottom: 25px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-banner:hover .phone-highlight {
+            transform: scale(1.05);
         }
 
         .btn-wa-cta {
@@ -367,9 +472,15 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
         }
 
-        /* FLOATING WA BUTTON */
+        .btn-wa-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        /* FLOATING WA BUTTON ANIMATION */
         .floating-wa {
             position: fixed;
             bottom: 25px;
@@ -386,6 +497,13 @@
             gap: 10px;
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             z-index: 999;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse 2s infinite;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
         }
 
         footer {
@@ -409,16 +527,16 @@
 
     <header>
         <div class="logo-wrapper">
-            <img src="https://i.imgur.com/HP3QhM3.jpeg" alt="Logo RHS TEKNIK" class="brand-logo">
+            <img src="https://i.imgur.com/HP3QhM3.jpeg" alt="Logo CH TEKNIK" class="brand-logo">
         </div>
         <div>
             <div class="status-badge">
                 <span class="pulse-dot"></span> Teknisi Siap Melayani
             </div>
         </div>
-        <h1>Servis Pompa Air <span>RHS TEKNIK</span></h1>
+        <h1>Servis Pompa Air <span>CH TEKNIK</span></h1>
         <p class="hero-desc">Solusi Cepat, Profesional, & Bergaransi Resmi untuk Masalah Air Bersih di Jakarta Selatan & Tangerang Selatan.</p>
-        <a href="https://wa.me/6288985105537?text=Halo%20RHS%20TEKNIK,%20saya%20mau%20tanya%20servis%20pompa%20air" class="btn-main" target="_blank">
+        <a href="https://wa.me/6288985105537?text=Halo%20CH%20TEKNIK,%20saya%20mau%20tanya%20servis%20pompa%20air" class="btn-main" target="_blank">
             Hubungi Teknisi (088985105537)
         </a>
     </header>
@@ -429,10 +547,10 @@
         <div class="card-custom">
             <div class="section-header">
                 <div class="section-icon">✓</div>
-                <h2>Tentang RHS TEKNIK</h2>
+                <h2>Tentang CH TEKNIK</h2>
             </div>
-            <p style="color: var(--text-muted); font-size: 1.05rem;">
-                <strong>RHS TEKNIK</strong> adalah penyedia layanan teknis berpengalaman yang berfokus pada perbaikan, instalasi, dan perawatan mesin pompa air. Kami menjamin pekerjaan yang cepat, rapi, transparan, dan bergaransi penuh untuk kenyamanan tempat tinggal maupun bisnis Anda.
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">
+                <strong>CH TEKNIK</strong> adalah penyedia layanan teknis berpengalaman yang berfokus pada perbaikan, instalasi, dan perawatan mesin pompa air. Kami menjamin pekerjaan yang cepat, rapi, transparan, dan bergaransi penuh untuk kenyamanan tempat tinggal maupun bisnis Anda.
             </p>
         </div>
 
@@ -444,7 +562,9 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://i.imgur.com/O4nhTOz.jpeg" alt="Pemasangan APC dan Mesin Pompa Air" class="portfolio-img">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://i.imgur.com/O4nhTOz.jpeg" alt="Pemasangan APC dan Mesin Pompa Air" class="portfolio-img">
+                    </div>
                     <div class="portfolio-info">
                         <span class="portfolio-tag">Instalasi Baru</span>
                         <h3>Pemasangan APC & Pompa</h3>
@@ -452,7 +572,9 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://i.imgur.com/lCtCzI6.jpeg" alt="Servis dan Perbaikan Pompa Air" class="portfolio-img">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://i.imgur.com/lCtCzI6.jpeg" alt="Servis dan Perbaikan Pompa Air" class="portfolio-img">
+                    </div>
                     <div class="portfolio-info">
                         <span class="portfolio-tag">Perbaikan</span>
                         <h3>Servis Mesin Pompa Air</h3>
@@ -460,7 +582,9 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://i.imgur.com/gJnPw9S.jpeg" alt="Pemasangan Filter Air" class="portfolio-img">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://i.imgur.com/gJnPw9S.jpeg" alt="Pemasangan Filter Air" class="portfolio-img">
+                    </div>
                     <div class="portfolio-info">
                         <span class="portfolio-tag">Filtrasi Air</span>
                         <h3>Pemasangan Filter Air</h3>
@@ -468,7 +592,9 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://i.imgur.com/u1v84QC.jpeg" alt="Pengeboran Sumur Pompa Air" class="portfolio-img">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://i.imgur.com/u1v84QC.jpeg" alt="Pengeboran Sumur Pompa Air" class="portfolio-img">
+                    </div>
                     <div class="portfolio-info">
                         <span class="portfolio-tag">Pengeboran</span>
                         <h3>Pengeboran Sumur Air</h3>
@@ -553,7 +679,8 @@
             <h2>Butuh Bantuan Pompa Air Hari Ini?</h2>
             <p>Konsultasikan keluhan air Anda langsung dengan tim ahli kami secara gratis.</p>
             <div class="phone-highlight">088985105537</div>
-            <a href="https://wa.me/6288985105537?text=Halo%20RHS%20TEKNIK,%20saya%20mau%20tanya%20servis%20pompa%20air" class="btn-wa-cta" target="_blank">
+            <br>
+            <a href="https://wa.me/6288985105537?text=Halo%20CH%20TEKNIK,%20saya%20mau%20tanya%20servis%20pompa%20air" class="btn-wa-cta" target="_blank">
                 Chat WhatsApp Sekarang
             </a>
         </div>
@@ -561,12 +688,12 @@
     </div>
 
     <!-- FLOATING WA BUTTON -->
-    <a href="https://wa.me/6288985105537?text=Halo%20RHS%20TEKNIK,%20saya%20mau%20tanya%20servis%20pompa%20air" class="floating-wa" target="_blank">
+    <a href="https://wa.me/6288985105537?text=Halo%20CH%20TEKNIK,%20saya%20mau%20tanya%20servis%20pompa%20air" class="floating-wa" target="_blank">
         💬 <span>Chat WhatsApp</span>
     </a>
 
     <footer>
-        <p>&copy; 2026 RHS TEKNIK. All rights reserved.</p>
+        <p>&copy; 2026 CH TEKNIK. All rights reserved.</p>
     </footer>
 
 </body>
